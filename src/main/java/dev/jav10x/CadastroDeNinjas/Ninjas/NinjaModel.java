@@ -2,6 +2,7 @@ package dev.jav10x.CadastroDeNinjas.Ninjas;
 
 
 import dev.jav10x.CadastroDeNinjas.Missoes.MissoesModel;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,11 +20,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class NinjaModel {
+   
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String nome;
+
+    @Column(unique = true)
     private String email;
+
     private int idade;
     
     @ManyToOne
