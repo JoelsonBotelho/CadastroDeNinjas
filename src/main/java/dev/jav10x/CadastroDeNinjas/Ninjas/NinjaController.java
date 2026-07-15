@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 
 @RestController
-@RequestMapping
+@RequestMapping("/ninjas")
 public class NinjaController {
     @GetMapping("/boasvindas")
     public String boasVindas() {
