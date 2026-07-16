@@ -43,9 +43,9 @@ public class NinjaController {
     public NinjaModel listarNinjaPorID(@PathVariable Long id){
         return ninjaService.listarNinjaPorID(id);
     }
-    @PutMapping("/alterarID")
-    public String alterarNinjaPorID(){
-        return "Alterar por ID";
+    @PutMapping("/alterar/{id}")
+    public NinjaModel alterarNinjaPorID(@PathVariable Long id, @RequestBody NinjaModel ninja){
+        return ninjaService.alterarNinjaPorID(id, ninja);
     }
     @DeleteMapping("/deletar/{id}")
     public String deletarPorID(@PathVariable Long id){
