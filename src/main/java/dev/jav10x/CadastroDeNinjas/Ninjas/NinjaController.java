@@ -5,11 +5,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
@@ -17,14 +20,18 @@ import org.springframework.web.bind.annotation.PutMapping;
 public class NinjaController {
 
     private NinjaService ninjaService;
+    public NinjaController(NinjaService ninjaService) {
+        this.ninjaService = ninjaService;
+    }
+    
     @GetMapping("/boasvindas")
     public String boasVindas() {
         return "Essa é a minha primeira mensagem nessa rota";
     }
 
     @PostMapping("/criar")
-    public String criarNinja(){
-        return "Ninja criado";
+    public NinjaModel criarNinja(@RequestBody NinjaModel ninja){
+        return ninjaService.criarNinja(ninja);
     }
 
     @GetMapping("/listar")
