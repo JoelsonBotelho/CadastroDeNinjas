@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
@@ -31,9 +32,9 @@ public class NinjaController {
         return ninjaService.listarNinjas();
     }
 
-    @GetMapping("/listarID")
-    public String listarNinjaPorID(){
-        return "Listar Ninja por ID";
+    @GetMapping("/listar/{id}")
+    public NinjaModel listarNinjaPorID(@PathVariable Long id){
+        return ninjaService.listarNinjaPorID(id);
     }
     @PutMapping("/alterarID")
     public String alterarNinjaPorID(){
