@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Adicionar Ninja</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <h1>🥷 Adicionar Novo Ninja</h1>
+
+
+    <div class="form-container">
+
+
+        <form th:action="@{/ninjas/ui/salvar}"
+              th:object="${ninja}"
+              method="post">
+
+
+            <div class="campo">
+
+                <label>Nome</label>
+
+                <input type="text"
+                       th:field="*{nome}"
+                       placeholder="Digite o nome do ninja"
+                       required>
+
+            </div>
+
+
+
+            <div class="campo">
+
+                <label>Idade</label>
+
+                <input type="number"
+                       th:field="*{idade}"
+                       placeholder="Digite a idade"
+                       required>
+
+            </div>
+
+
+
+
+            <div class="campo">
+
+                <label>Email</label>
+
+                <input type="email"
+                       th:field="*{email}"
+                       placeholder="Digite o email"
+                       required>
+
+            </div>
+
+
+
+
+            <div class="campo">
+
+                <label>Rank</label>
+
+
+                <select th:field="*{rank}">
+
+                    <option value="">
+                        Selecione o Rank
+                    </option>
+
+                    <option value="Genin">
+                        Genin
+                    </option>
+
+
+                    <option value="Chunin">
+                        Chunin
+                    </option>
+
+
+                    <option value="Jounin">
+                        Jounin
+                    </option>
+
+
+                    <option value="Kage">
+                        Kage
+                    </option>
+
+
+                </select>
+
+
+            </div>
+
+
+
+
+            <div class="campo">
+
+                <label>Missão</label>
+
+
+                <select th:field="*{missoes}">
+
+
+                    <option value="">
+                        Sem missão
+                    </option>
+
+
+                    <option th:each="missao : ${missoes}"
+                            th:value="${missao.id}"
+                            th:text="${missao.nome}">
+                    </option>
+
+
+                </select>
+
+
+            </div>
+
+
+
+            <div class="botoes">
+
+
+                <button type="submit"
+                        class="btn salvar">
+
+                    💾 Salvar Ninja
+
+                </button>
+
+
+
+                <a th:href="@{/ninjas/ui/listar}"
+                   class="btn voltar">
+
+                    ⬅ Voltar
+
+                </a>
+
+
+            </div>
+
+
+
+        </form>
+
+
+    </div>
+
+
+</body>
+
+</html>
