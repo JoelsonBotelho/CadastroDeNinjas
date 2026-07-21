@@ -1,8 +1,5 @@
 package dev.jav10x.CadastroDeNinjas.Ninjas;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import dev.jav10x.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
