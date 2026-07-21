@@ -62,7 +62,8 @@ public class MissoesController {
     public ResponseEntity<String> deletarMissaoPorID(@PathVariable Long id){
         if(missoesService.listarMissaoPorId(id) != null){
             missoesService.deletarMissaoPorId(id);
-            return ResponseEntity.ok("Missão deletada com sucesso: \nNome: " + missoesService.listarMissaoPorId(id).getNome() + "\nID: " + missoesService.listarMissaoPorId(id).getId());
+            return ResponseEntity.status(HttpStatus.OK)
+            .body("Missão com Id: " + id + " deletada com sucesso.");
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
             .body("Missão com Id: "+ id +" não encontrada.");
